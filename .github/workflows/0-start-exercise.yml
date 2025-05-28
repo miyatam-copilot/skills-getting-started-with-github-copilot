@@ -28,8 +28,10 @@ jobs:
     name: Post next step content
     runs-on: ubuntu-latest
     needs: [start_exercise]
+    outputs:
+      ISSUE_URL: ${{ steps.build-comment.outputs.issue_url }}
     env:
-      ISSUE_URL: ${{ needs.start_exercise.outputs.issue_url }}
+      ISSUE_URL: ${{ steps.build-comment.outputs.issue_url }}
 
 
     steps:
